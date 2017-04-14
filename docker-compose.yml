@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  db:
+    container_name: ci_adminlte
+    image: mariadb
+    restart: always
+    command: mysqld --innodb-buffer-pool-size=20M
+    volumes:
+      - ./_data:/var/lib/mysql:rw
+    environment:
+      - MYSQL_DATABASE=ci_adminlte
+      - MYSQL_USER=username
+      - MYSQL_PASSWORD=password
+      - MYSQL_ROOT_PASSWORD=rootpass
+    ports:
+      - "3306:3306"

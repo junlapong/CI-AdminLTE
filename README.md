@@ -1,8 +1,34 @@
-# CI-AdminLTE v1.4.3
+CI-AdminLTE v1.4.3
+====================
 
-## Demo
+## Setup
+### Start mariadb
+```
+$ cd /path/to/CI-AdminLTE
+$ docker-compose up
+```
 
-Coming soon
+### Update database
+
+```
+$ cd /path/to/CI-AdminLTE/install/sql
+$ mysql -h 127.0.0.1 -P 3306 -u username -p
+Enter password: password
+
+mysql> use ci_adminlte;
+mysql> source ci_adminlte.sql
+mysql> source ci_adminlte_update.sql
+```
+
+## Run
+
+Note: work only with php 5.6 but php 7.1 have issues, not remember session.
+
+```
+php -t ./ -S 0.0.0.0:8088
+```
+
+ * http://127.0.0.1:8088/
 
 ### Login
  * Email : `admin@admin.com`
